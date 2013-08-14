@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+if ARGV.size != 1
+	puts "onigrep : grep using ruby regexp (oniguruma/onigmo)"
+	puts "#{__FILE__} 'regexp'"
+	exit
+end
+
+reg = Regexp.new(ARGV.shift)
+
+while gets
+	$_.chomp!
+	if $_ =~ reg
+		puts $_
+	end
+end
+
